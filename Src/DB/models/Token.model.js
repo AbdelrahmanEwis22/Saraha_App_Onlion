@@ -1,0 +1,27 @@
+import mongoose from "mongoose";
+
+
+
+
+const tokenSchema = new mongoose.Schema(
+    {
+        jti:{
+            type:String,
+            require:true,
+            unique:true
+        },
+        expiresIn:{
+            type:Number,required:true
+        },
+        userId:{
+            type:mongoose.Schema.Types.ObjectId,ref:"User",required:true
+        }
+},
+{
+    timestamps: true,
+}
+);
+export const TokenModel =
+mongoose.model.User || mongoose.model("Token", tokenSchema);
+TokenModel.syncIndexes();
+
