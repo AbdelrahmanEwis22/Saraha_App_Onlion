@@ -11,6 +11,7 @@ export const authentication = ({tokenType = tokenTypeEnum.access}={}) => {
         }
     )
 };
+
 export const authorization = ({accessRoles = []}={}) => {
     return asyncHandler(
         async (req,res,next) => {
